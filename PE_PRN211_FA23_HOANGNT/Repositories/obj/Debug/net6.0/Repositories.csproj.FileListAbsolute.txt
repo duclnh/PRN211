@@ -12,3 +12,17 @@ C:\Users\Admin\Desktop\PE_PRN211_FA23_HOANGNT\Repositories\obj\Debug\net6.0\refi
 C:\Users\Admin\Desktop\PE_PRN211_FA23_HOANGNT\Repositories\obj\Debug\net6.0\Repositories.pdb
 C:\Users\Admin\Desktop\PE_PRN211_FA23_HOANGNT\Repositories\obj\Debug\net6.0\Repositories.genruntimeconfig.cache
 C:\Users\Admin\Desktop\PE_PRN211_FA23_HOANGNT\Repositories\obj\Debug\net6.0\ref\Repositories.dll
+H:\PRN211\PE_PRN211_FA23_HOANGNT\Repositories\bin\Debug\net6.0\Repositories.deps.json
+H:\PRN211\PE_PRN211_FA23_HOANGNT\Repositories\bin\Debug\net6.0\Repositories.runtimeconfig.json
+H:\PRN211\PE_PRN211_FA23_HOANGNT\Repositories\bin\Debug\net6.0\Repositories.dll
+H:\PRN211\PE_PRN211_FA23_HOANGNT\Repositories\bin\Debug\net6.0\Repositories.pdb
+H:\PRN211\PE_PRN211_FA23_HOANGNT\Repositories\obj\Debug\net6.0\Repositories.csproj.AssemblyReference.cache
+H:\PRN211\PE_PRN211_FA23_HOANGNT\Repositories\obj\Debug\net6.0\Repositories.GeneratedMSBuildEditorConfig.editorconfig
+H:\PRN211\PE_PRN211_FA23_HOANGNT\Repositories\obj\Debug\net6.0\Repositories.AssemblyInfoInputs.cache
+H:\PRN211\PE_PRN211_FA23_HOANGNT\Repositories\obj\Debug\net6.0\Repositories.AssemblyInfo.cs
+H:\PRN211\PE_PRN211_FA23_HOANGNT\Repositories\obj\Debug\net6.0\Repositories.csproj.CoreCompileInputs.cache
+H:\PRN211\PE_PRN211_FA23_HOANGNT\Repositories\obj\Debug\net6.0\Repositories.dll
+H:\PRN211\PE_PRN211_FA23_HOANGNT\Repositories\obj\Debug\net6.0\refint\Repositories.dll
+H:\PRN211\PE_PRN211_FA23_HOANGNT\Repositories\obj\Debug\net6.0\Repositories.pdb
+H:\PRN211\PE_PRN211_FA23_HOANGNT\Repositories\obj\Debug\net6.0\Repositories.genruntimeconfig.cache
+H:\PRN211\PE_PRN211_FA23_HOANGNT\Repositories\obj\Debug\net6.0\ref\Repositories.dll

@@ -17,7 +17,7 @@ namespace BookStore_HoangNT
 
             string email = txtEmail.Text; //TODO:kiểm tra rỗng!!!
             string password = txtPassword.Text; //TODO: kiểm tra rỗng
-            BookManagementMemberService se = new BookManagementMemberService(); ;
+            BookManagementMemberService se = new BookManagementMemberService();
 
             BookManagementMember account = se.CheckLogin(email, password);
             if (account == null)
@@ -40,6 +40,13 @@ namespace BookStore_HoangNT
             //ngon, role ADMIN thì mở from ĐỎ SAO VÀNG LÊN
             BookManagerForm bookMgt = new BookManagerForm();
             bookMgt.Show(); //show form CRUD
+            this.Hide();  //ẩn form login đi
+        }
+
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+            RegisterForm register = new RegisterForm();
+            register.Show(); //show form CRUD
             this.Hide();  //ẩn form login đi
         }
     }
