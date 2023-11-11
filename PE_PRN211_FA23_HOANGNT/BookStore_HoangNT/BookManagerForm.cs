@@ -164,5 +164,25 @@ namespace BookStore_HoangNT
             dgvBookList.DataSource = null;    //vip, xoá lưới, lấy danh sách mới
             dgvBookList.DataSource = result;
         }
+
+        private void changeColorMenuUser(object sender, EventArgs e)
+        {
+            tsmUser.ForeColor = Color.White;
+        }
+
+        private void ChangeColorMenu(object sender, EventArgs e)
+        {
+            tsmList.ForeColor = Color.White;
+        }
+
+        private void tsmList_Click(object sender, EventArgs e)
+        {
+            tsmList.ForeColor = Color.Black;
+        }
+
+        private void tsmUser_Click(object sender, EventArgs e)
+        {
+            tsmUser.ForeColor = Color.Black;
+        }
     }
 }

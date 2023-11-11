@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblHello = new Label();
             lblFormTitle = new Label();
             lblBookList = new Label();
             dgvBookList = new DataGridView();
@@ -49,25 +48,18 @@
             lblName = new Label();
             lblId = new Label();
             menuStrip1 = new MenuStrip();
-            productToolStripMenuItem = new ToolStripMenuItem();
+            tsmList = new ToolStripMenuItem();
             toolStripTextBox1 = new ToolStripTextBox();
             toolStripTextBox2 = new ToolStripTextBox();
+            tsmUser = new ToolStripMenuItem();
+            updateInformationToolStripMenuItem = new ToolStripMenuItem();
+            logoutToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dgvBookList).BeginInit();
             gbSearch.SuspendLayout();
             gbTask.SuspendLayout();
             gbBookInfo.SuspendLayout();
             menuStrip1.SuspendLayout();
             SuspendLayout();
-            // 
-            // lblHello
-            // 
-            lblHello.AutoSize = true;
-            lblHello.ForeColor = Color.Yellow;
-            lblHello.Location = new Point(938, 39);
-            lblHello.Name = "lblHello";
-            lblHello.Size = new Size(132, 20);
-            lblHello.TabIndex = 31;
-            lblHello.Text = "Welcomev | admin";
             // 
             // lblFormTitle
             // 
@@ -269,22 +261,24 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.BackColor = Color.White;
+            menuStrip1.BackColor = Color.DimGray;
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { productToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { tsmList, tsmUser });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1079, 28);
-            menuStrip1.TabIndex = 32;
+            menuStrip1.Size = new Size(1101, 28);
+            menuStrip1.TabIndex = 34;
             menuStrip1.Text = "menuStrip1";
             // 
-            // productToolStripMenuItem
+            // tsmList
             // 
-            productToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripTextBox1, toolStripTextBox2 });
-            productToolStripMenuItem.ForeColor = SystemColors.ActiveCaptionText;
-            productToolStripMenuItem.Name = "productToolStripMenuItem";
-            productToolStripMenuItem.Size = new Size(60, 24);
-            productToolStripMenuItem.Text = "Menu";
+            tsmList.DropDownItems.AddRange(new ToolStripItem[] { toolStripTextBox1, toolStripTextBox2 });
+            tsmList.ForeColor = SystemColors.ButtonHighlight;
+            tsmList.Name = "tsmList";
+            tsmList.Size = new Size(60, 24);
+            tsmList.Text = "Menu";
+            tsmList.DropDownClosed += ChangeColorMenu;
+            tsmList.Click += tsmList_Click;
             // 
             // toolStripTextBox1
             // 
@@ -298,14 +292,39 @@
             toolStripTextBox2.Size = new Size(100, 27);
             toolStripTextBox2.Text = "Category";
             // 
+            // tsmUser
+            // 
+            tsmUser.Alignment = ToolStripItemAlignment.Right;
+            tsmUser.DropDownItems.AddRange(new ToolStripItem[] { updateInformationToolStripMenuItem, logoutToolStripMenuItem });
+            tsmUser.ForeColor = SystemColors.ButtonHighlight;
+            tsmUser.Name = "tsmUser";
+            tsmUser.RightToLeft = RightToLeft.No;
+            tsmUser.Size = new Size(122, 24);
+            tsmUser.Text = "Le duc | Admin";
+            tsmUser.TextAlign = ContentAlignment.TopCenter;
+            tsmUser.DropDownClosed += changeColorMenuUser;
+            tsmUser.Click += tsmUser_Click;
+            // 
+            // updateInformationToolStripMenuItem
+            // 
+            updateInformationToolStripMenuItem.Name = "updateInformationToolStripMenuItem";
+            updateInformationToolStripMenuItem.RightToLeft = RightToLeft.No;
+            updateInformationToolStripMenuItem.Size = new Size(223, 26);
+            updateInformationToolStripMenuItem.Text = "Update Information";
+            // 
+            // logoutToolStripMenuItem
+            // 
+            logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            logoutToolStripMenuItem.Size = new Size(223, 26);
+            logoutToolStripMenuItem.Text = "Logout";
+            // 
             // BookCategoryManagerForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(192, 0, 0);
-            ClientSize = new Size(1079, 594);
+            ClientSize = new Size(1101, 594);
             Controls.Add(menuStrip1);
-            Controls.Add(lblHello);
             Controls.Add(lblFormTitle);
             Controls.Add(lblBookList);
             Controls.Add(dgvBookList);
@@ -317,7 +336,7 @@
             MinimizeBox = false;
             Name = "BookCategoryManagerForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "BookCategoryManagerForm";
+            Text = "Book Category Manager";
             Load += BookCategoryManagerForm_Load;
             ((System.ComponentModel.ISupportInitialize)dgvBookList).EndInit();
             gbSearch.ResumeLayout(false);
@@ -332,8 +351,6 @@
         }
 
         #endregion
-
-        private Label lblHello;
         private Label lblFormTitle;
         private Label lblBookList;
         private DataGridView dgvBookList;
@@ -354,8 +371,11 @@
         private Label lblName;
         private Label lblId;
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem productToolStripMenuItem;
+        private ToolStripMenuItem tsmList;
         private ToolStripTextBox toolStripTextBox1;
         private ToolStripTextBox toolStripTextBox2;
+        private ToolStripMenuItem tsmUser;
+        private ToolStripMenuItem updateInformationToolStripMenuItem;
+        private ToolStripMenuItem logoutToolStripMenuItem;
     }
 }

@@ -36,6 +36,7 @@
             lblAppName = new Label();
             gbLoginForm = new GroupBox();
             lblSignIn = new Label();
+            btnSignUp = new Button();
             gbLoginForm.SuspendLayout();
             SuspendLayout();
             // 
@@ -45,7 +46,7 @@
             btnLogin.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             btnLogin.Location = new Point(61, 289);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(220, 44);
+            btnLogin.Size = new Size(79, 44);
             btnLogin.TabIndex = 2;
             btnLogin.Text = "Sign in";
             btnLogin.UseVisualStyleBackColor = false;
@@ -92,15 +93,16 @@
             // 
             lblAppName.AutoSize = true;
             lblAppName.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            lblAppName.Location = new Point(147, 26);
+            lblAppName.Location = new Point(190, 28);
             lblAppName.Name = "lblAppName";
-            lblAppName.Size = new Size(255, 46);
+            lblAppName.Size = new Size(196, 46);
             lblAppName.TabIndex = 15;
-            lblAppName.Text = "Book Manager";
+            lblAppName.Text = "Book Store";
             // 
             // gbLoginForm
             // 
             gbLoginForm.BackColor = Color.LimeGreen;
+            gbLoginForm.Controls.Add(btnSignUp);
             gbLoginForm.Controls.Add(lblSignIn);
             gbLoginForm.Controls.Add(txtPassword);
             gbLoginForm.Controls.Add(btnLogin);
@@ -123,6 +125,17 @@
             lblSignIn.Size = new Size(109, 38);
             lblSignIn.TabIndex = 17;
             lblSignIn.Text = "Sign In";
+            // 
+            // btnSignUp
+            // 
+            btnSignUp.BackColor = Color.FromArgb(255, 192, 192);
+            btnSignUp.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSignUp.Location = new Point(202, 289);
+            btnSignUp.Name = "btnSignUp";
+            btnSignUp.Size = new Size(79, 44);
+            btnSignUp.TabIndex = 18;
+            btnSignUp.Text = "Sign up";
+            btnSignUp.UseVisualStyleBackColor = false;
             // 
             // LoginForm
             // 
@@ -155,5 +168,6 @@
         private Label lblAppName;
         private GroupBox gbLoginForm;
         private Label lblSignIn;
+        private Button btnSignUp;
     }
 }

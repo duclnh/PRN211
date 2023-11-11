@@ -53,16 +53,18 @@
             btnUpdate = new Button();
             btnAdd = new Button();
             gbSearch = new GroupBox();
+            comboBox1 = new ComboBox();
             btnSearch = new Button();
             dgvBookList = new DataGridView();
             lblBookList = new Label();
             lblFormTitle = new Label();
-            lblHello = new Label();
             menuStrip1 = new MenuStrip();
-            productToolStripMenuItem = new ToolStripMenuItem();
+            tsmList = new ToolStripMenuItem();
             toolStripTextBox1 = new ToolStripTextBox();
             toolStripTextBox2 = new ToolStripTextBox();
-            comboBox1 = new ComboBox();
+            tsmUser = new ToolStripMenuItem();
+            updateInformationToolStripMenuItem = new ToolStripMenuItem();
+            logoutToolStripMenuItem = new ToolStripMenuItem();
             gbBookInfo.SuspendLayout();
             gbTask.SuspendLayout();
             gbSearch.SuspendLayout();
@@ -326,6 +328,15 @@
             gbSearch.TabStop = false;
             gbSearch.Text = " Search ";
             // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(59, 98);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(407, 28);
+            comboBox1.TabIndex = 26;
+            comboBox1.Text = "Category";
+            // 
             // btnSearch
             // 
             btnSearch.BackColor = Color.FromArgb(192, 0, 0);
@@ -365,40 +376,33 @@
             lblFormTitle.AutoSize = true;
             lblFormTitle.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             lblFormTitle.ForeColor = Color.Yellow;
-            lblFormTitle.Location = new Point(413, 28);
+            lblFormTitle.Location = new Point(494, 28);
             lblFormTitle.Name = "lblFormTitle";
-            lblFormTitle.Size = new Size(255, 46);
+            lblFormTitle.Size = new Size(196, 46);
             lblFormTitle.TabIndex = 18;
-            lblFormTitle.Text = "Book Manager";
-            // 
-            // lblHello
-            // 
-            lblHello.AutoSize = true;
-            lblHello.ForeColor = Color.Yellow;
-            lblHello.Location = new Point(954, 48);
-            lblHello.Name = "lblHello";
-            lblHello.Size = new Size(132, 20);
-            lblHello.TabIndex = 24;
-            lblHello.Text = "Welcomev | admin";
+            lblFormTitle.Text = "Book Store";
             // 
             // menuStrip1
             // 
-            menuStrip1.BackColor = Color.White;
+            menuStrip1.BackColor = Color.DimGray;
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { productToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { tsmList, tsmUser });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1157, 28);
-            menuStrip1.TabIndex = 25;
+            menuStrip1.TabIndex = 33;
             menuStrip1.Text = "menuStrip1";
             // 
-            // productToolStripMenuItem
+            // tsmList
             // 
-            productToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripTextBox1, toolStripTextBox2 });
-            productToolStripMenuItem.ForeColor = SystemColors.ActiveCaptionText;
-            productToolStripMenuItem.Name = "productToolStripMenuItem";
-            productToolStripMenuItem.Size = new Size(60, 24);
-            productToolStripMenuItem.Text = "Menu";
+            tsmList.DropDownItems.AddRange(new ToolStripItem[] { toolStripTextBox1, toolStripTextBox2 });
+            tsmList.ForeColor = SystemColors.ButtonHighlight;
+            tsmList.Name = "tsmList";
+            tsmList.Size = new Size(60, 24);
+            tsmList.Text = "Menu";
+            tsmList.DropDownClosed += ChangeColorMenu;
+            tsmList.DropDownOpened += tsmList_Click;
+            tsmList.Click += tsmList_Click;
             // 
             // toolStripTextBox1
             // 
@@ -412,14 +416,31 @@
             toolStripTextBox2.Size = new Size(100, 27);
             toolStripTextBox2.Text = "Category";
             // 
-            // comboBox1
+            // tsmUser
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(59, 98);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(407, 28);
-            comboBox1.TabIndex = 26;
-            comboBox1.Text = "Category";
+            tsmUser.Alignment = ToolStripItemAlignment.Right;
+            tsmUser.DropDownItems.AddRange(new ToolStripItem[] { updateInformationToolStripMenuItem, logoutToolStripMenuItem });
+            tsmUser.ForeColor = SystemColors.ButtonHighlight;
+            tsmUser.Name = "tsmUser";
+            tsmUser.RightToLeft = RightToLeft.No;
+            tsmUser.Size = new Size(122, 24);
+            tsmUser.Text = "Le duc | Admin";
+            tsmUser.TextAlign = ContentAlignment.TopCenter;
+            tsmUser.DropDownClosed += changeColorMenuUser;
+            tsmUser.DropDownOpened += tsmUser_Click;
+            // 
+            // updateInformationToolStripMenuItem
+            // 
+            updateInformationToolStripMenuItem.Name = "updateInformationToolStripMenuItem";
+            updateInformationToolStripMenuItem.RightToLeft = RightToLeft.No;
+            updateInformationToolStripMenuItem.Size = new Size(224, 26);
+            updateInformationToolStripMenuItem.Text = "Update Information";
+            // 
+            // logoutToolStripMenuItem
+            // 
+            logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            logoutToolStripMenuItem.Size = new Size(224, 26);
+            logoutToolStripMenuItem.Text = "Logout";
             // 
             // BookManagerForm
             // 
@@ -427,16 +448,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(192, 0, 0);
             ClientSize = new Size(1157, 726);
-            Controls.Add(lblHello);
+            Controls.Add(menuStrip1);
             Controls.Add(lblFormTitle);
             Controls.Add(lblBookList);
             Controls.Add(dgvBookList);
             Controls.Add(gbSearch);
             Controls.Add(gbTask);
             Controls.Add(gbBookInfo);
-            Controls.Add(menuStrip1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            MainMenuStrip = menuStrip1;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "BookManagerForm";
@@ -487,11 +506,13 @@
         private Label lblFormTitle;
         private TextBox txtPrice;
         private TextBox txtQuantity;
-        private Label lblHello;
+        private ComboBox comboBox1;
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem productToolStripMenuItem;
+        private ToolStripMenuItem tsmList;
         private ToolStripTextBox toolStripTextBox1;
         private ToolStripTextBox toolStripTextBox2;
-        private ComboBox comboBox1;
+        private ToolStripMenuItem tsmUser;
+        private ToolStripMenuItem updateInformationToolStripMenuItem;
+        private ToolStripMenuItem logoutToolStripMenuItem;
     }
 }
