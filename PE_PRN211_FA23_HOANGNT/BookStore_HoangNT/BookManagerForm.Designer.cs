@@ -65,6 +65,7 @@
             tsmUser = new ToolStripMenuItem();
             updateInformationToolStripMenuItem = new ToolStripMenuItem();
             logoutToolStripMenuItem = new ToolStripMenuItem();
+            label1 = new Label();
             gbBookInfo.SuspendLayout();
             gbTask.SuspendLayout();
             gbSearch.SuspendLayout();
@@ -316,6 +317,7 @@
             // 
             // gbSearch
             // 
+            gbSearch.Controls.Add(label1);
             gbSearch.Controls.Add(comboBox1);
             gbSearch.Controls.Add(btnSearch);
             gbSearch.Controls.Add(lblKeyword);
@@ -331,11 +333,10 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(59, 98);
+            comboBox1.Location = new Point(132, 98);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(407, 28);
+            comboBox1.Size = new Size(221, 28);
             comboBox1.TabIndex = 26;
-            comboBox1.Text = "Category";
             // 
             // btnSearch
             // 
@@ -433,14 +434,23 @@
             // 
             updateInformationToolStripMenuItem.Name = "updateInformationToolStripMenuItem";
             updateInformationToolStripMenuItem.RightToLeft = RightToLeft.No;
-            updateInformationToolStripMenuItem.Size = new Size(224, 26);
+            updateInformationToolStripMenuItem.Size = new Size(223, 26);
             updateInformationToolStripMenuItem.Text = "Update Information";
             // 
             // logoutToolStripMenuItem
             // 
             logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            logoutToolStripMenuItem.Size = new Size(224, 26);
+            logoutToolStripMenuItem.Size = new Size(223, 26);
             logoutToolStripMenuItem.Text = "Logout";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(59, 101);
+            label1.Name = "label1";
+            label1.Size = new Size(69, 20);
+            label1.TabIndex = 27;
+            label1.Text = "Category";
             // 
             // BookManagerForm
             // 
@@ -514,5 +524,6 @@
         private ToolStripMenuItem tsmUser;
         private ToolStripMenuItem updateInformationToolStripMenuItem;
         private ToolStripMenuItem logoutToolStripMenuItem;
+        private Label label1;
     }
 }
