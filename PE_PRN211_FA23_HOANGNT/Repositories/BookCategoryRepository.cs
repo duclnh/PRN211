@@ -14,12 +14,30 @@ namespace Repositories
     /// </summary>
     public class BookCategoryRepository
     {
-        //private BookManagement2023DbContext _context;
+        private BookManagement2023DbContext _context;
+
+        public BookCategory? Get(int CateId)
+        {
+            _context = new BookManagement2023DbContext();
+            return _context.BookCategories.Find(CateId);
+        }
+
         public List<BookCategory> GetAll()
         {
-            //_context = new BookManagement2023DbContext();
-            //return _context.BookCategories.ToList();
             return new BookManagement2023DbContext().BookCategories.ToList();
+        }
+
+        public void Create(BookCategory cate)
+        {
+            _context = new BookManagement2023DbContext();
+            _context.BookCategories.Add(cate); 
+            _context.SaveChanges();
+        }
+        public void Update(BookCategory cate)
+        {
+            _context = new BookManagement2023DbContext();
+            _context.BookCategories.Update(cate);
+            _context.SaveChanges();
         }
     }
 }
