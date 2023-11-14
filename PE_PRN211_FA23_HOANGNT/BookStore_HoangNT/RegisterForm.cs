@@ -64,7 +64,7 @@ namespace BookStore_HoangNT
         // Function to check for duplicate email
         private bool IsEmailDuplicate(string email)
         {
-            using ( SqlConnection connection = new SqlConnection())
+            using (SqlConnection connection = new SqlConnection())
             {
                 connection.Open();
 
