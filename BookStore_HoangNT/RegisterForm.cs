@@ -57,7 +57,6 @@ namespace BookStore_HoangNT
                 {
                     MemberId = 0,
                     Email = email,
-                    // Set other properties as needed
                     Password = password,
                     FullName = name,
                     MemberRole = 3
