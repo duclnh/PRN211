@@ -1,0 +1,30 @@
+C:\Users\Admin\Desktop\PE_PRN211_FA23_HOANGNT\Services\bin\Debug\net6.0\Services.deps.json
+C:\Users\Admin\Desktop\PE_PRN211_FA23_HOANGNT\Services\bin\Debug\net6.0\Services.dll
+C:\Users\Admin\Desktop\PE_PRN211_FA23_HOANGNT\Services\bin\Debug\net6.0\Services.pdb
+C:\Users\Admin\Desktop\PE_PRN211_FA23_HOANGNT\Services\bin\Debug\net6.0\Repositories.dll
+C:\Users\Admin\Desktop\PE_PRN211_FA23_HOANGNT\Services\bin\Debug\net6.0\Repositories.pdb
+C:\Users\Admin\Desktop\PE_PRN211_FA23_HOANGNT\Services\obj\Debug\net6.0\Services.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\PE_PRN211_FA23_HOANGNT\Services\obj\Debug\net6.0\Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\PE_PRN211_FA23_HOANGNT\Services\obj\Debug\net6.0\Services.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\PE_PRN211_FA23_HOANGNT\Services\obj\Debug\net6.0\Services.AssemblyInfo.cs
+C:\Users\Admin\Desktop\PE_PRN211_FA23_HOANGNT\Services\obj\Debug\net6.0\Services.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\PE_PRN211_FA23_HOANGNT\Services\obj\Debug\net6.0\Services.csproj.CopyComplete
+C:\Users\Admin\Desktop\PE_PRN211_FA23_HOANGNT\Services\obj\Debug\net6.0\Services.dll
+C:\Users\Admin\Desktop\PE_PRN211_FA23_HOANGNT\Services\obj\Debug\net6.0\refint\Services.dll
+C:\Users\Admin\Desktop\PE_PRN211_FA23_HOANGNT\Services\obj\Debug\net6.0\Services.pdb
+C:\Users\Admin\Desktop\PE_PRN211_FA23_HOANGNT\Services\obj\Debug\net6.0\ref\Services.dll
+C:\Users\le huy hoang\Downloads\PRN211-main (1)\PRN211-main\PE_PRN211_FA23_HOANGNT\Services\bin\Debug\net6.0\Services.deps.json
+C:\Users\le huy hoang\Downloads\PRN211-main (1)\PRN211-main\PE_PRN211_FA23_HOANGNT\Services\bin\Debug\net6.0\Services.dll
+C:\Users\le huy hoang\Downloads\PRN211-main (1)\PRN211-main\PE_PRN211_FA23_HOANGNT\Services\bin\Debug\net6.0\Services.pdb
+C:\Users\le huy hoang\Downloads\PRN211-main (1)\PRN211-main\PE_PRN211_FA23_HOANGNT\Services\bin\Debug\net6.0\Repositories.dll
+C:\Users\le huy hoang\Downloads\PRN211-main (1)\PRN211-main\PE_PRN211_FA23_HOANGNT\Services\bin\Debug\net6.0\Repositories.pdb
+C:\Users\le huy hoang\Downloads\PRN211-main (1)\PRN211-main\PE_PRN211_FA23_HOANGNT\Services\obj\Debug\net6.0\Services.csproj.AssemblyReference.cache
+C:\Users\le huy hoang\Downloads\PRN211-main (1)\PRN211-main\PE_PRN211_FA23_HOANGNT\Services\obj\Debug\net6.0\Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\le huy hoang\Downloads\PRN211-main (1)\PRN211-main\PE_PRN211_FA23_HOANGNT\Services\obj\Debug\net6.0\Services.AssemblyInfoInputs.cache
+C:\Users\le huy hoang\Downloads\PRN211-main (1)\PRN211-main\PE_PRN211_FA23_HOANGNT\Services\obj\Debug\net6.0\Services.AssemblyInfo.cs
+C:\Users\le huy hoang\Downloads\PRN211-main (1)\PRN211-main\PE_PRN211_FA23_HOANGNT\Services\obj\Debug\net6.0\Services.csproj.CoreCompileInputs.cache
+C:\Users\le huy hoang\Downloads\PRN211-main (1)\PRN211-main\PE_PRN211_FA23_HOANGNT\Services\obj\Debug\net6.0\Services.csproj.CopyComplete
+C:\Users\le huy hoang\Downloads\PRN211-main (1)\PRN211-main\PE_PRN211_FA23_HOANGNT\Services\obj\Debug\net6.0\Services.dll
+C:\Users\le huy hoang\Downloads\PRN211-main (1)\PRN211-main\PE_PRN211_FA23_HOANGNT\Services\obj\Debug\net6.0\refint\Services.dll
+C:\Users\le huy hoang\Downloads\PRN211-main (1)\PRN211-main\PE_PRN211_FA23_HOANGNT\Services\obj\Debug\net6.0\Services.pdb
+C:\Users\le huy hoang\Downloads\PRN211-main (1)\PRN211-main\PE_PRN211_FA23_HOANGNT\Services\obj\Debug\net6.0\ref\Services.dll
