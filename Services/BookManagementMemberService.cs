@@ -36,7 +36,7 @@ namespace Services
         }
         public BookManagementMember? GetMemberByEmail(string email)
         {
-            // fix itObject reference not set to an instance of an object.'
+           
             _repo = new BookManagementMemberRepository();
 
 
