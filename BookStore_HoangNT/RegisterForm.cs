@@ -30,8 +30,6 @@ namespace BookStore_HoangNT
 
 
             BookManagementMemberService se = new BookManagementMemberService();
-            // convert bool to BookManagementMember
-
             // Check for empty fields
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(name) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmPassword))
             {
