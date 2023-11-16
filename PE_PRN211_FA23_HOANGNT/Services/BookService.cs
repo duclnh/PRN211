@@ -32,6 +32,23 @@ namespace Services
             return _repo.GetAll();
         }
 
+        public List<BookDTO> GetAllInfo()
+        {
+            var books = _repo.GetAll();
+            return books.Select(b => new BookDTO
+            {
+                BookId = b.BookId,
+                BookName = b.BookName,
+                Description = b.Description,
+                ReleaseDate = b.ReleaseDate,
+                Quantity = b.Quantity,
+                BookCategoryId = b.BookCategoryId,
+                Price = b.Price,
+                Author = b.Author,
+                CategoryName = b.BookCategory.BookGenreType
+            }).ToList();
+        }
+
         //CÒN HÀM THÊM, XOÁ, SỬA, VÀ VÀ VÀ SEARCH()
         /// <summary>
         /// Hàm này search cuốn sách theo tiêu chí: name, desc
@@ -41,11 +58,25 @@ namespace Services
         /// </summary>
         /// <param name="keyword"></param>
         /// <returns></returns>
-        public List<Book> SearchBooks(string keyword)
+        public List<BookDTO> SearchBooks(string keyword)
         {
-            return _repo.GetAll().Where(b => b.BookName.ToLower().Contains(keyword.ToLower()) ||
-                                             b.Description.ToLower().Contains(keyword.ToLower())).ToList();
+            var books = _repo.GetAll().Where(b => b.BookName.ToLower().Contains(keyword.ToLower()) ||
+                                                   b.Description.ToLower().Contains(keyword.ToLower())).ToList();
+
+            return books.Select(b => new BookDTO
+            {
+                BookId = b.BookId,
+                BookName = b.BookName,
+                Description = b.Description,
+                ReleaseDate = b.ReleaseDate,
+                Quantity = b.Quantity,
+                BookCategoryId = b.BookCategoryId,
+                Price = b.Price,
+                Author = b.Author,
+                CategoryName = b.BookCategory.BookGenreType
+            }).ToList();
         }
+
 
         /// <summary>
         /// Hàm này xoá 1 cuốn sách theo mã số - int
@@ -65,12 +96,24 @@ namespace Services
         //anh hãy đưa em 1 cuốn sách đc new, em nhờ repo add giùm
         public void AddABook(Book book)
         {
-            _repo.Create(book); //try-catch, trùng mã số, bỏ trống ô nhập
+            var books = _repo.GetAll().FirstOrDefault(b => b.BookId == book.BookId);
+            if (books != null)
+                throw new KeyNotFoundException("this book already exist");
+            else
+                _repo.Create(book);
+            //try-catch, trùng mã số, bỏ trống ô nhập
         }
 
         public void UpdateABook(Book book)
         {
-            _repo.Update(book); //try-catch, validation
+            var books = _repo.GetAll().FirstOrDefault(b => b.BookId == book.BookId);
+            if (books != null)
+                _repo.Update(book);
+            else
+                throw new KeyNotFoundException("Can't find this book");
+            //try-catch, validation
         }
+
+
     }
 }

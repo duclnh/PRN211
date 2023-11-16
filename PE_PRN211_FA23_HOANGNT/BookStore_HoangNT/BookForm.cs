@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -65,28 +66,80 @@ namespace BookStore_HoangNT
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //TODO: BẮT VALIDATION, IF CÁC Ô NHẬP THOẢ HAY KO, KO THÌ CHỬI 
-            //      BẰNG MESSAGEBOX.SHOW()
-
-            Book book = new()
+            try
             {
-                BookId = int.Parse(txtId.Text.Trim()),
-                BookName = txtName.Text.Trim(),
-                Description = txtDescription.Text.Trim(),
-                ReleaseDate = dtpReleasedDate.Value.Date, //chỉ lấy ngày, ko lấy giờ
-                Author = txtAuthor.Text.Trim(),
-                Quantity = int.Parse(txtQuantity.Text.Trim()),
-                Price = double.Parse(txtPrice.Text.Trim()),
-                BookCategoryId = int.Parse(cboCategory.SelectedValue.ToString())
-            };
+                //TODO: BẮT VALIDATION, IF CÁC Ô NHẬP THOẢ HAY KO, KO THÌ CHỬI 
+                //      BẰNG MESSAGEBOX.SHOW()
+                if (!AllFieldsAreRequired())
+                {
+                    MessageBox.Show("all fields are required", "thông báo");
+                    return;
+                }
 
-            if (BookId != null)  //mode update
-                _bookService.UpdateABook(book);
-            else
-                _bookService.AddABook(book);
+                Book book = new()
+                {
+                    BookId = int.Parse(txtId.Text.Trim()),
+                    BookName = txtName.Text.Trim(),
+                    Description = txtDescription.Text.Trim(),
+                    ReleaseDate = dtpReleasedDate.Value.Date, //chỉ lấy ngày, ko lấy giờ
+                    Author = txtAuthor.Text.Trim(),
+                    Quantity = int.Parse(txtQuantity.Text.Trim()),
+                    Price = double.Parse(txtPrice.Text.Trim()),
+                    BookCategoryId = int.Parse(cboCategory.SelectedValue.ToString())
+                };
 
-            Close();  //đóng form sau khi save xong
+                if (book.Quantity < 0 || book.Price < 0)
+                {
+                    MessageBox.Show("Quantity and price must greater or equal than 0");
+                    return;
+                }
 
+                if (book.ReleaseDate > DateTime.Now.Date)
+                {
+                    MessageBox.Show("Release Date must not exceed current date");
+                    return;
+                }
+
+                string pattern = @"(?:\b[A-Z0-9][a-zA-Z]*\b\s*){2,50}";
+                bool check = Regex.IsMatch(book.BookName, pattern);
+                if (!check)
+                {
+                    MessageBox.Show("Value for book name must in the range of 2 and 50, " +
+                        "Each word of the book name must begin with the capital letter, " +
+                        "book name is allowed with special character");
+                    return;
+                }
+
+                if (BookId != null)  //mode update
+                    _bookService.UpdateABook(book);
+                else
+                    _bookService.AddABook(book);
+
+                Close();  //đóng form sau khi save xong
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+
+        private Boolean AllFieldsAreRequired()
+        {
+            // Check all TextBox controls on the form
+            foreach (Control control in this.Controls)
+            {
+                if (control is TextBox)
+                {
+                    TextBox textBox = (TextBox)control;
+                    if (string.IsNullOrWhiteSpace(textBox.Text))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
     }
 }
