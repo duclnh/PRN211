@@ -187,5 +187,12 @@ namespace BookStore_HoangNT
         {
             tsmUser.ForeColor = Color.Black;
         }
+
+        private void stbCategory_Click(object sender, EventArgs e)
+        {
+            BookCategoryManagerForm bookMgt = new BookCategoryManagerForm();
+            bookMgt.Show();
+            this.Hide();
+        }
     }
 }

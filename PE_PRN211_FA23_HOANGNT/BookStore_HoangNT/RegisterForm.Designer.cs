@@ -72,7 +72,7 @@
             txtName.Margin = new Padding(3, 2, 3, 2);
             txtName.Name = "txtName";
             txtName.Size = new Size(193, 23);
-            txtName.TabIndex = 20;
+            txtName.TabIndex = 1;
             // 
             // lblName
             // 
@@ -92,7 +92,7 @@
             txtRepassword.Name = "txtRepassword";
             txtRepassword.PasswordChar = '*';
             txtRepassword.Size = new Size(193, 23);
-            txtRepassword.TabIndex = 18;
+            txtRepassword.TabIndex = 3;
             // 
             // label1
             // 
@@ -122,7 +122,7 @@
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
             txtPassword.Size = new Size(193, 23);
-            txtPassword.TabIndex = 1;
+            txtPassword.TabIndex = 2;
             // 
             // btnSignin
             // 
@@ -132,7 +132,7 @@
             btnSignin.Margin = new Padding(3, 2, 3, 2);
             btnSignin.Name = "btnSignin";
             btnSignin.Size = new Size(192, 33);
-            btnSignin.TabIndex = 2;
+            btnSignin.TabIndex = 4;
             btnSignin.Text = "Sign up";
             btnSignin.UseVisualStyleBackColor = false;
             btnSignin.Click += btnSignin_Click;
