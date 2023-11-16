@@ -43,5 +43,11 @@ namespace Services
         {
             _repo.Update(cate); 
         }
+
+        public BookCategory? IdExists(int id)
+        {
+            BookCategory? existingCategory = _repo.GetAll().FirstOrDefault(b => b.BookCategoryId == id);
+            return existingCategory;
+        }
     }
 }
