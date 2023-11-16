@@ -27,7 +27,7 @@ namespace BookStore_HoangNT
             InitializeComponent();
         }
 
-        private void BookForm_Load(object sender, EventArgs e)
+        public void BookForm_Load(object sender, EventArgs e)
         {
 
             //đổ toàn bộ Category vào ComboBox hoặc DropDown

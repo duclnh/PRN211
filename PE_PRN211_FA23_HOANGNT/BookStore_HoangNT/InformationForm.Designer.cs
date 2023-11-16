@@ -30,16 +30,16 @@
         {
             lblFormTitle = new Label();
             gbBookInfo = new GroupBox();
+            txtRePassword = new TextBox();
+            label1 = new Label();
+            txtNewPassword = new TextBox();
+            txtPassword = new TextBox();
             txtName = new TextBox();
+            lblCategory = new Label();
+            lblAuthor = new Label();
             lblName = new Label();
             btnCancel = new Button();
             btnSave = new Button();
-            txtAuthor = new TextBox();
-            lblCategory = new Label();
-            lblAuthor = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            label1 = new Label();
             gbBookInfo.SuspendLayout();
             SuspendLayout();
             // 
@@ -56,10 +56,10 @@
             // 
             // gbBookInfo
             // 
-            gbBookInfo.Controls.Add(textBox2);
+            gbBookInfo.Controls.Add(txtRePassword);
             gbBookInfo.Controls.Add(label1);
-            gbBookInfo.Controls.Add(textBox1);
-            gbBookInfo.Controls.Add(txtAuthor);
+            gbBookInfo.Controls.Add(txtNewPassword);
+            gbBookInfo.Controls.Add(txtPassword);
             gbBookInfo.Controls.Add(txtName);
             gbBookInfo.Controls.Add(lblCategory);
             gbBookInfo.Controls.Add(lblAuthor);
@@ -72,12 +72,63 @@
             gbBookInfo.TabStop = false;
             gbBookInfo.Text = "User Info ";
             // 
+            // txtRePassword
+            // 
+            txtRePassword.Location = new Point(126, 227);
+            txtRePassword.Name = "txtRePassword";
+            txtRePassword.PasswordChar = 'x';
+            txtRePassword.Size = new Size(353, 27);
+            txtRePassword.TabIndex = 10;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 227);
+            label1.Name = "label1";
+            label1.Size = new Size(93, 20);
+            label1.TabIndex = 9;
+            label1.Text = "Re password";
+            // 
+            // txtNewPassword
+            // 
+            txtNewPassword.Location = new Point(126, 180);
+            txtNewPassword.Name = "txtNewPassword";
+            txtNewPassword.PasswordChar = 'x';
+            txtNewPassword.Size = new Size(353, 27);
+            txtNewPassword.TabIndex = 8;
+            // 
+            // txtPassword
+            // 
+            txtPassword.Location = new Point(126, 127);
+            txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = 'x';
+            txtPassword.Size = new Size(353, 27);
+            txtPassword.TabIndex = 6;
+            // 
             // txtName
             // 
             txtName.Location = new Point(126, 77);
             txtName.Name = "txtName";
             txtName.Size = new Size(353, 27);
             txtName.TabIndex = 1;
+            // 
+            // lblCategory
+            // 
+            lblCategory.AutoSize = true;
+            lblCategory.Location = new Point(12, 180);
+            lblCategory.Name = "lblCategory";
+            lblCategory.Size = new Size(106, 20);
+            lblCategory.TabIndex = 7;
+            lblCategory.Text = "New password";
+            // 
+            // lblAuthor
+            // 
+            lblAuthor.AutoSize = true;
+            lblAuthor.Location = new Point(12, 130);
+            lblAuthor.Name = "lblAuthor";
+            lblAuthor.Size = new Size(70, 20);
+            lblAuthor.TabIndex = 6;
+            lblAuthor.Text = "Password";
             // 
             // lblName
             // 
@@ -98,6 +149,7 @@
             btnCancel.TabIndex = 24;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = false;
+            btnCancel.Click += btnCancel_Click;
             // 
             // btnSave
             // 
@@ -109,54 +161,7 @@
             btnSave.TabIndex = 23;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = false;
-            // 
-            // txtAuthor
-            // 
-            txtAuthor.Location = new Point(126, 127);
-            txtAuthor.Name = "txtAuthor";
-            txtAuthor.Size = new Size(353, 27);
-            txtAuthor.TabIndex = 6;
-            // 
-            // lblCategory
-            // 
-            lblCategory.AutoSize = true;
-            lblCategory.Location = new Point(12, 180);
-            lblCategory.Name = "lblCategory";
-            lblCategory.Size = new Size(106, 20);
-            lblCategory.TabIndex = 7;
-            lblCategory.Text = "New password";
-            // 
-            // lblAuthor
-            // 
-            lblAuthor.AutoSize = true;
-            lblAuthor.Location = new Point(12, 130);
-            lblAuthor.Name = "lblAuthor";
-            lblAuthor.Size = new Size(70, 20);
-            lblAuthor.TabIndex = 6;
-            lblAuthor.Text = "Password";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(126, 180);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(353, 27);
-            textBox1.TabIndex = 8;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(126, 227);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(353, 27);
-            textBox2.TabIndex = 10;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 227);
-            label1.Name = "label1";
-            label1.Size = new Size(93, 20);
-            label1.TabIndex = 9;
-            label1.Text = "Re password";
+            btnSave.Click += btnSave_Click;
             // 
             // InformationForm
             // 
@@ -169,7 +174,9 @@
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
             Name = "InformationForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "InformationForm";
+            Load += InformationForm_Load;
             gbBookInfo.ResumeLayout(false);
             gbBookInfo.PerformLayout();
             ResumeLayout(false);
@@ -184,10 +191,10 @@
         private Label lblName;
         private Button btnCancel;
         private Button btnSave;
-        private TextBox textBox2;
+        private TextBox txtRePassword;
         private Label label1;
-        private TextBox textBox1;
-        private TextBox txtAuthor;
+        private TextBox txtNewPassword;
+        private TextBox txtPassword;
         private Label lblCategory;
         private Label lblAuthor;
     }

@@ -14,6 +14,9 @@ namespace BookStore_HoangNT
 {
     public partial class BookCategoryManagerForm : Form
     {
+        public string email { get; set; }
+        private BookManagementMember? account;
+        private BookManagementMemberService _bookMemberService;
         private BookCategoryService _categoryService = new BookCategoryService();
         public BookCategoryManagerForm()
         {
@@ -44,6 +47,7 @@ namespace BookStore_HoangNT
         private void stbBook_Click(object sender, EventArgs e)
         {
             BookManagerForm bookMgt = new BookManagerForm();
+            bookMgt.Account = account;
             bookMgt.Show();
             this.Hide();
         }
@@ -59,10 +63,31 @@ namespace BookStore_HoangNT
         }
         private void BookCategoryManagerForm_Load(object sender, EventArgs e)
         {
+            _bookMemberService = new BookManagementMemberService();
+            account = _bookMemberService.GetAccount(email);
+            string role = "";
+            if (account != null)
+            {
+                if (account.MemberRole == 3)
+                {
+                    role = "Member";
+                }
+                else if (account.MemberRole == 2)
+                {
+                    role = "Staff";
+                }
+                else
+                {
+                    role = "Admin";
+                }
+                tsmUser.Text = account.FullName + " | " + role;
+            }
+
             var result = _categoryService.GetAllCategories();
             dgvCateList.DataSource = null;
             dgvCateList.DataSource = result;
             dgvCateList.Columns["Books"].Visible = false;
+
         }
 
         private void dgvCateList_SelectionChanged(object sender, EventArgs e)
@@ -129,6 +154,18 @@ namespace BookStore_HoangNT
 
         }
 
+        private void updateInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InformationForm infor = new InformationForm();
+            infor.email = account.Email;
+            infor.ShowDialog();
+        }
 
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Hide();
+        }
     }
 }

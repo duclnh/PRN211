@@ -32,9 +32,9 @@
             lblCateList = new Label();
             dgvCateList = new DataGridView();
             gbSearch = new GroupBox();
-            btnSearch = new Button();
             lblKeyword = new Label();
             txtKeyword = new TextBox();
+            btnSearch = new Button();
             gbTask = new GroupBox();
             btnExit = new Button();
             btnUpdate = new Button();
@@ -48,8 +48,8 @@
             lblId = new Label();
             menuStrip1 = new MenuStrip();
             tsmList = new ToolStripMenuItem();
-            stbBook = new ToolStripTextBox();
-            stbCategory = new ToolStripTextBox();
+            stbBook = new ToolStripMenuItem();
+            stbCategory = new ToolStripMenuItem();
             tsmUser = new ToolStripMenuItem();
             updateInformationToolStripMenuItem = new ToolStripMenuItem();
             logoutToolStripMenuItem = new ToolStripMenuItem();
@@ -65,9 +65,9 @@
             lblFormTitle.AutoSize = true;
             lblFormTitle.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             lblFormTitle.ForeColor = Color.Yellow;
-            lblFormTitle.Location = new Point(322, 29);
+            lblFormTitle.Location = new Point(368, 39);
             lblFormTitle.Name = "lblFormTitle";
-            lblFormTitle.Size = new Size(331, 37);
+            lblFormTitle.Size = new Size(409, 46);
             lblFormTitle.TabIndex = 26;
             lblFormTitle.Text = "Book Category Manager";
             // 
@@ -75,9 +75,9 @@
             // 
             lblCateList.AutoSize = true;
             lblCateList.ForeColor = Color.Yellow;
-            lblCateList.Location = new Point(473, 82);
+            lblCateList.Location = new Point(541, 109);
             lblCateList.Name = "lblCateList";
-            lblCateList.Size = new Size(76, 15);
+            lblCateList.Size = new Size(95, 20);
             lblCateList.TabIndex = 30;
             lblCateList.Text = "Category List";
             // 
@@ -86,12 +86,11 @@
             dgvCateList.BackgroundColor = Color.White;
             dgvCateList.BorderStyle = BorderStyle.Fixed3D;
             dgvCateList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCateList.Location = new Point(473, 114);
-            dgvCateList.Margin = new Padding(3, 2, 3, 2);
+            dgvCateList.Location = new Point(541, 152);
             dgvCateList.Name = "dgvCateList";
             dgvCateList.RowHeadersWidth = 51;
             dgvCateList.RowTemplate.Height = 29;
-            dgvCateList.Size = new Size(458, 306);
+            dgvCateList.Size = new Size(523, 408);
             dgvCateList.TabIndex = 25;
             dgvCateList.SelectionChanged += dgvCateList_SelectionChanged;
             // 
@@ -100,43 +99,39 @@
             gbSearch.Controls.Add(lblKeyword);
             gbSearch.Controls.Add(txtKeyword);
             gbSearch.ForeColor = Color.Yellow;
-            gbSearch.Location = new Point(12, 345);
-            gbSearch.Margin = new Padding(3, 2, 3, 2);
+            gbSearch.Location = new Point(14, 460);
             gbSearch.Name = "gbSearch";
-            gbSearch.Padding = new Padding(3, 2, 3, 2);
-            gbSearch.Size = new Size(433, 67);
+            gbSearch.Size = new Size(495, 89);
             gbSearch.TabIndex = 29;
             gbSearch.TabStop = false;
             gbSearch.Text = " Search ";
             // 
-            // btnSearch
-            // 
-            btnSearch.BackColor = Color.FromArgb(192, 0, 0);
-            btnSearch.Location = new Point(342, 26);
-            btnSearch.Margin = new Padding(3, 2, 3, 2);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(82, 22);
-            btnSearch.TabIndex = 1;
-            btnSearch.Text = "Search";
-            btnSearch.UseVisualStyleBackColor = false;
-            btnSearch.Click += btnSearch_Click;
-            // 
             // lblKeyword
             // 
             lblKeyword.AutoSize = true;
-            lblKeyword.Location = new Point(10, 31);
+            lblKeyword.Location = new Point(11, 41);
             lblKeyword.Name = "lblKeyword";
-            lblKeyword.Size = new Size(53, 15);
+            lblKeyword.Size = new Size(67, 20);
             lblKeyword.TabIndex = 18;
             lblKeyword.Text = "Keyword";
             // 
             // txtKeyword
             // 
-            txtKeyword.Location = new Point(110, 28);
-            txtKeyword.Margin = new Padding(3, 2, 3, 2);
+            txtKeyword.Location = new Point(126, 37);
             txtKeyword.Name = "txtKeyword";
-            txtKeyword.Size = new Size(309, 23);
+            txtKeyword.Size = new Size(353, 27);
             txtKeyword.TabIndex = 0;
+            // 
+            // btnSearch
+            // 
+            btnSearch.BackColor = Color.FromArgb(192, 0, 0);
+            btnSearch.Location = new Point(391, 35);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(94, 29);
+            btnSearch.TabIndex = 1;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
             // gbTask
             // 
@@ -145,11 +140,9 @@
             gbTask.Controls.Add(btnUpdate);
             gbTask.Controls.Add(btnAdd);
             gbTask.ForeColor = Color.Yellow;
-            gbTask.Location = new Point(7, 278);
-            gbTask.Margin = new Padding(3, 2, 3, 2);
+            gbTask.Location = new Point(8, 371);
             gbTask.Name = "gbTask";
-            gbTask.Padding = new Padding(3, 2, 3, 2);
-            gbTask.Size = new Size(438, 60);
+            gbTask.Size = new Size(501, 80);
             gbTask.TabIndex = 28;
             gbTask.TabStop = false;
             gbTask.Text = " Task ";
@@ -157,10 +150,9 @@
             // btnExit
             // 
             btnExit.BackColor = Color.FromArgb(192, 0, 0);
-            btnExit.Location = new Point(228, 26);
-            btnExit.Margin = new Padding(3, 2, 3, 2);
+            btnExit.Location = new Point(261, 35);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(82, 22);
+            btnExit.Size = new Size(94, 29);
             btnExit.TabIndex = 3;
             btnExit.Text = "Exit";
             btnExit.UseVisualStyleBackColor = false;
@@ -169,10 +161,9 @@
             // btnUpdate
             // 
             btnUpdate.BackColor = Color.FromArgb(192, 0, 0);
-            btnUpdate.Location = new Point(126, 26);
-            btnUpdate.Margin = new Padding(3, 2, 3, 2);
+            btnUpdate.Location = new Point(144, 35);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(82, 22);
+            btnUpdate.Size = new Size(94, 29);
             btnUpdate.TabIndex = 1;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
@@ -181,10 +172,9 @@
             // btnAdd
             // 
             btnAdd.BackColor = Color.FromArgb(192, 0, 0);
-            btnAdd.Location = new Point(15, 26);
-            btnAdd.Margin = new Padding(3, 2, 3, 2);
+            btnAdd.Location = new Point(17, 35);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(82, 22);
+            btnAdd.Size = new Size(94, 29);
             btnAdd.TabIndex = 0;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = false;
@@ -199,61 +189,56 @@
             gbBookInfo.Controls.Add(lblName);
             gbBookInfo.Controls.Add(lblId);
             gbBookInfo.ForeColor = Color.Yellow;
-            gbBookInfo.Location = new Point(7, 82);
-            gbBookInfo.Margin = new Padding(3, 2, 3, 2);
+            gbBookInfo.Location = new Point(8, 109);
             gbBookInfo.Name = "gbBookInfo";
-            gbBookInfo.Padding = new Padding(3, 2, 3, 2);
-            gbBookInfo.Size = new Size(438, 192);
+            gbBookInfo.Size = new Size(501, 256);
             gbBookInfo.TabIndex = 27;
             gbBookInfo.TabStop = false;
             gbBookInfo.Text = "Category Info ";
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(115, 96);
-            txtDescription.Margin = new Padding(3, 2, 3, 2);
+            txtDescription.Location = new Point(131, 128);
             txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
             txtDescription.ReadOnly = true;
             txtDescription.ScrollBars = ScrollBars.Vertical;
-            txtDescription.Size = new Size(309, 78);
+            txtDescription.Size = new Size(353, 103);
             txtDescription.TabIndex = 2;
             // 
             // txtName
             // 
-            txtName.Location = new Point(115, 64);
-            txtName.Margin = new Padding(3, 2, 3, 2);
+            txtName.Location = new Point(131, 85);
             txtName.Name = "txtName";
             txtName.ReadOnly = true;
-            txtName.Size = new Size(309, 23);
+            txtName.Size = new Size(353, 27);
             txtName.TabIndex = 1;
             // 
             // txtId
             // 
             txtId.BackColor = SystemColors.ControlLightLight;
             txtId.BorderStyle = BorderStyle.FixedSingle;
-            txtId.Location = new Point(115, 32);
-            txtId.Margin = new Padding(3, 2, 3, 2);
+            txtId.Location = new Point(131, 43);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
-            txtId.Size = new Size(110, 23);
+            txtId.Size = new Size(125, 27);
             txtId.TabIndex = 0;
             // 
             // lblDesc
             // 
             lblDesc.AutoSize = true;
-            lblDesc.Location = new Point(15, 98);
+            lblDesc.Location = new Point(17, 131);
             lblDesc.Name = "lblDesc";
-            lblDesc.Size = new Size(67, 15);
+            lblDesc.Size = new Size(85, 20);
             lblDesc.TabIndex = 2;
             lblDesc.Text = "Description";
             // 
             // lblName
             // 
             lblName.AutoSize = true;
-            lblName.Location = new Point(15, 67);
+            lblName.Location = new Point(17, 89);
             lblName.Name = "lblName";
-            lblName.Size = new Size(39, 15);
+            lblName.Size = new Size(49, 20);
             lblName.TabIndex = 1;
             lblName.Text = "Name";
             // 
@@ -261,9 +246,9 @@
             // 
             lblId.AutoSize = true;
             lblId.ForeColor = Color.Yellow;
-            lblId.Location = new Point(15, 34);
+            lblId.Location = new Point(17, 45);
             lblId.Name = "lblId";
-            lblId.Size = new Size(18, 15);
+            lblId.Size = new Size(24, 20);
             lblId.TabIndex = 0;
             lblId.Text = "ID";
             // 
@@ -274,8 +259,8 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { tsmList, tsmUser });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(5, 2, 0, 2);
-            menuStrip1.Size = new Size(963, 24);
+            menuStrip1.Padding = new Padding(6, 3, 0, 3);
+            menuStrip1.Size = new Size(1101, 30);
             menuStrip1.TabIndex = 34;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -284,7 +269,7 @@
             tsmList.DropDownItems.AddRange(new ToolStripItem[] { stbBook, stbCategory });
             tsmList.ForeColor = SystemColors.ButtonHighlight;
             tsmList.Name = "tsmList";
-            tsmList.Size = new Size(50, 20);
+            tsmList.Size = new Size(60, 24);
             tsmList.Text = "Menu";
             tsmList.DropDownClosed += ChangeColorMenu;
             tsmList.Click += tsmList_Click;
@@ -292,16 +277,14 @@
             // stbBook
             // 
             stbBook.Name = "stbBook";
-            stbBook.ReadOnly = true;
-            stbBook.Size = new Size(100, 23);
+            stbBook.Size = new Size(152, 26);
             stbBook.Text = "Book";
             stbBook.Click += stbBook_Click;
             // 
             // stbCategory
             // 
             stbCategory.Name = "stbCategory";
-            stbCategory.ReadOnly = true;
-            stbCategory.Size = new Size(100, 23);
+            stbCategory.Size = new Size(152, 26);
             stbCategory.Text = "Category";
             // 
             // tsmUser
@@ -311,7 +294,7 @@
             tsmUser.ForeColor = SystemColors.ButtonHighlight;
             tsmUser.Name = "tsmUser";
             tsmUser.RightToLeft = RightToLeft.No;
-            tsmUser.Size = new Size(99, 20);
+            tsmUser.Size = new Size(122, 24);
             tsmUser.Text = "Le duc | Admin";
             tsmUser.TextAlign = ContentAlignment.TopCenter;
             tsmUser.DropDownClosed += changeColorMenuUser;
@@ -321,21 +304,23 @@
             // 
             updateInformationToolStripMenuItem.Name = "updateInformationToolStripMenuItem";
             updateInformationToolStripMenuItem.RightToLeft = RightToLeft.No;
-            updateInformationToolStripMenuItem.Size = new Size(178, 22);
+            updateInformationToolStripMenuItem.Size = new Size(224, 26);
             updateInformationToolStripMenuItem.Text = "Update Information";
+            updateInformationToolStripMenuItem.Click += updateInformationToolStripMenuItem_Click;
             // 
             // logoutToolStripMenuItem
             // 
             logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            logoutToolStripMenuItem.Size = new Size(178, 22);
+            logoutToolStripMenuItem.Size = new Size(224, 26);
             logoutToolStripMenuItem.Text = "Logout";
+            logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
             // 
             // BookCategoryManagerForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(192, 0, 0);
-            ClientSize = new Size(963, 446);
+            ClientSize = new Size(1101, 595);
             Controls.Add(menuStrip1);
             Controls.Add(lblFormTitle);
             Controls.Add(lblCateList);
@@ -344,7 +329,6 @@
             Controls.Add(gbTask);
             Controls.Add(gbBookInfo);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "BookCategoryManagerForm";
@@ -385,8 +369,8 @@
         private Label lblId;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem tsmList;
-        private ToolStripTextBox stbBook;
-        private ToolStripTextBox stbCategory;
+        private ToolStripMenuItem stbBook;
+        private ToolStripMenuItem stbCategory;
         private ToolStripMenuItem tsmUser;
         private ToolStripMenuItem updateInformationToolStripMenuItem;
         private ToolStripMenuItem logoutToolStripMenuItem;

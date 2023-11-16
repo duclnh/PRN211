@@ -27,20 +27,11 @@ namespace BookStore_HoangNT
                                  MessageBoxIcon.Error);
                 return;
             }
-            //not null rồi, và ngon rồi, cho vào form Quản lí sách
-            //nhưng chỉ vào nếu role là ADMIN
-            if (account.MemberRole != 1)
-            {
-                MessageBox.Show("You are not allowed to access this function!",
-                                "Access denied", MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-                return;
-            }
 
-            //ngon, role ADMIN thì mở from ĐỎ SAO VÀNG LÊN
-            BookManagerForm bookMgt = new BookManagerForm();
-            bookMgt.Show(); //show form CRUD
-            this.Hide();  //ẩn form login đi
+                BookManagerForm bookMgt = new BookManagerForm();
+                bookMgt.Account = account;
+                bookMgt.Show(); //show form CRUD
+                this.Hide();  //ẩn form login đi
         }
 
         private void btnSignUp_Click(object sender, EventArgs e)
