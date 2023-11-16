@@ -53,11 +53,11 @@ namespace BookStore_HoangNT
             {
                 BookManagementMember newMember = new BookManagementMember
                 {
-                    MemberId = 0,
+                    
                     Email = email,
                     Password = password,
                     FullName = name,
-                    MemberRole = 3
+                    
 
                 };
 
