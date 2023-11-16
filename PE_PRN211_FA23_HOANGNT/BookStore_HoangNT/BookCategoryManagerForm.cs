@@ -98,8 +98,7 @@ namespace BookStore_HoangNT
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            int id;
-            if (string.IsNullOrWhiteSpace(txtId.Text) || !int.TryParse(txtId.Text, out id))
+            if (string.IsNullOrWhiteSpace(txtId.Text) || !int.TryParse(txtId.Text, out _))
             {
                 MessageBox.Show("The Book ID is invalid. Please select a row in the grid to edit or input a number!!!",
                     "Invalid Book ID",

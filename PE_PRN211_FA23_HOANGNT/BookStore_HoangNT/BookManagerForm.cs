@@ -39,10 +39,11 @@ namespace BookStore_HoangNT
         private void BookManagerForm_Load(object sender, EventArgs e)
         {
             //load cái danh sách Sách vào grid
-            var result = _bookService.GetAllInfo();
+            var result = _bookService.GetAllBooks();
             dgvBookList.DataSource = null;    //vip, xoá lưới, lấy danh sách mới
             dgvBookList.DataSource = result;
-            //giấu cột CategoryId, nó đang chứa data 1 dòng của table Category
+            //giấu cột CategoryId, nó đang chứa data 1 dòng của table Category\
+            dgvBookList.Columns["BookCategory"].Visible = false;
 
             //đổ toàn bộ Category vào ComboBox hoặc DropDown
             cboCategory.DataSource = _categoryService.GetAllCategories();
@@ -52,10 +53,7 @@ namespace BookStore_HoangNT
             cboCategory.DisplayMember = "BookGenreType";
             cboCategory.ValueMember = "BookCategoryId"; //chọn 1 dòng xổ ra
             //nghĩa là lấy CategoryId
-            //DataGridViewTextBoxColumn categoryColumn = new DataGridViewTextBoxColumn();
-            //categoryColumn.DataPropertyName = "CategoryName";
-            //categoryColumn.HeaderText = "Category";
-            //dgvBookList.Columns.Add(categoryColumn);
+
 
 
         }
@@ -64,7 +62,7 @@ namespace BookStore_HoangNT
         {
             if (dgvBookList.SelectedRows.Count > 0)
             {
-                var selectedBook = (BookDTO)dgvBookList.SelectedRows[0].DataBoundItem;
+                var selectedBook = (Book)dgvBookList.SelectedRows[0].DataBoundItem;
                 //có trong tay 1 object/1 cuốn sách đang được lựa chọn rồi
                 //chấm từng field của nó đổ vào form
                 txtId.Text = selectedBook.BookId.ToString();
@@ -75,7 +73,6 @@ namespace BookStore_HoangNT
                 txtPrice.Text = selectedBook.Price.ToString();
                 cboCategory.SelectedValue = selectedBook.BookCategoryId;
                 txtAuthor.Text = selectedBook.Author;
-                cboCategory.Text = selectedBook.CategoryName;
             }
         }
 
@@ -116,7 +113,7 @@ namespace BookStore_HoangNT
             _bookService.DeleteABook(id);
 
             //load cái danh sách Sách vào grid
-            var result = _bookService.GetAllInfo();
+            var result = _bookService.GetAllBooks();
             dgvBookList.DataSource = null;    //vip, xoá lưới, lấy danh sách mới
             dgvBookList.DataSource = result;
 
@@ -146,7 +143,7 @@ namespace BookStore_HoangNT
             bookForm.ShowDialog();
             //refesh lại grid
             //load cái danh sách Sách vào grid
-            var result = _bookService.GetAllInfo();
+            var result = _bookService.GetAllBooks();
             dgvBookList.DataSource = null;    //vip, xoá lưới, lấy danh sách mới
             dgvBookList.DataSource = result;
 
@@ -163,7 +160,7 @@ namespace BookStore_HoangNT
             //NEW THÌ SHOW FORM TRỐNG, DO NOTHING
             //xong, đóng form thì show lại lưới/grid
             //load cái danh sách Sách vào grid
-            var result = _bookService.GetAllInfo();
+            var result = _bookService.GetAllBooks();
             dgvBookList.DataSource = null;    //vip, xoá lưới, lấy danh sách mới
             dgvBookList.DataSource = result;
         }
