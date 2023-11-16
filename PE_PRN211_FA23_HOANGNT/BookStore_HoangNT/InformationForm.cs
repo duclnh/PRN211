@@ -7,14 +7,94 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Repositories;
+using Repositories.Entities;
+using Services;
 
 namespace BookStore_HoangNT
 {
     public partial class InformationForm : Form
     {
-        public InformationForm()
+        public string email { get; set; }
+        private readonly BookManagementMemberService _memberRepository;
+        private BookManagementMember? account;
+        public InformationForm( )
         {
             InitializeComponent();
+            _memberRepository = new BookManagementMemberService();
+        }
+
+        private void InformationForm_Load(object sender, EventArgs e)
+        {
+            account = _memberRepository.GetAccount(email);
+            if (account != null)
+            {
+                txtName.Text = account.FullName;
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtName.Text))
+            {
+                MessageBox.Show("Please enter your name", "Wrong", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (string.IsNullOrEmpty(txtPassword.Text))
+            {
+                MessageBox.Show("Please enter your password", "Wrong", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (string.IsNullOrEmpty(txtNewPassword.Text))
+            {
+                MessageBox.Show("Please enter new password", "Wrong", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (string.IsNullOrEmpty(txtRePassword.Text))
+            {
+                MessageBox.Show("Please enter re password", "Wrong", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+
+            }
+            if (txtPassword.Text != account.Password)
+            {
+                MessageBox.Show("Password is incorrect", "Wrong", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (txtNewPassword.Text != txtRePassword.Text)
+            {
+                MessageBox.Show("RePassword is incorrect", "Wrong", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            var ask = MessageBox.Show("Are you sure want to update account", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (ask == DialogResult.Yes)
+            {
+                BookManagementMember updateAccount = new BookManagementMember()
+                {
+                    MemberId = account.MemberId,
+                    Password = txtNewPassword.Text,
+                    Email = account.Email,
+                    FullName = txtName.Text.Trim(),
+                    MemberRole = account.MemberRole,
+                };
+                bool checkUpdate = _memberRepository.UpdateAccount(updateAccount);
+                if (checkUpdate)
+                {
+                    MessageBox.Show("Update account is successfullly", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtPassword.Text = "";
+                    txtNewPassword.Text = "";
+                    txtRePassword.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("RePassword is incorrect", "Wrong", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
         }
     }
 }

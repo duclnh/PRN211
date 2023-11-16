@@ -32,7 +32,25 @@ namespace Services
             //return null;
 
             return account != null && account.Password == password ? account : null;
-        } 
+        }
+        public BookManagementMember? GetAccount(string email)
+        {
+            BookManagementMemberRepository repo = new BookManagementMemberRepository();
 
+             return repo.Get(email); //tìm accoun theo email
+        }
+        public bool UpdateAccount(BookManagementMember account)
+        {
+            BookManagementMemberRepository repo = new BookManagementMemberRepository();
+            try
+            {
+                repo.Update(account);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

@@ -3181,23 +3181,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ptai2\\.nuget\\packages\\": {},
+    "C:\\Users\\Admin\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ptai2\\Desktop\\PRN211\\bt\\PRN211-main\\PE_PRN211_FA23_HOANGNT\\Repositories\\Repositories.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\New folder\\PRN211\\PE_PRN211_FA23_HOANGNT\\Repositories\\Repositories.csproj",
       "projectName": "Repositories",
-      "projectPath": "C:\\Users\\ptai2\\Desktop\\PRN211\\bt\\PRN211-main\\PE_PRN211_FA23_HOANGNT\\Repositories\\Repositories.csproj",
-      "packagesPath": "C:\\Users\\ptai2\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ptai2\\Desktop\\PRN211\\bt\\PRN211-main\\PE_PRN211_FA23_HOANGNT\\Repositories\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\New folder\\PRN211\\PE_PRN211_FA23_HOANGNT\\Repositories\\Repositories.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\New folder\\PRN211\\PE_PRN211_FA23_HOANGNT\\Repositories\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ptai2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3206,6 +3206,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3269,7 +3270,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

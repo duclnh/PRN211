@@ -14,7 +14,7 @@ namespace BookStore_HoangNT
 {
     public partial class BookManagerForm : Form
     {
-
+        public BookManagementMember? Account { get; set; }
         private BookService _bookService = new BookService();
         private BookCategoryService _categoryService = new BookCategoryService();
 
@@ -51,13 +51,33 @@ namespace BookStore_HoangNT
             //nhưng khi chọn 1 dòng xổ ra, thì ngầm hiểu value là cột Id
             cboCategory.DisplayMember = "BookGenreType";
             cboCategory.ValueMember = "BookCategoryId"; //chọn 1 dòng xổ ra
-            //nghĩa là lấy CategoryId
-            //DataGridViewTextBoxColumn categoryColumn = new DataGridViewTextBoxColumn();
-            //categoryColumn.DataPropertyName = "CategoryName";
-            //categoryColumn.HeaderText = "Category";
-            //dgvBookList.Columns.Add(categoryColumn);
-
-
+                                                        //nghĩa là lấy CategoryId
+                                                        //DataGridViewTextBoxColumn categoryColumn = new DataGridViewTextBoxColumn();
+                                                        //categoryColumn.DataPropertyName = "CategoryName";
+                                                        //categoryColumn.HeaderText = "Category";
+                                                        //dgvBookList.Columns.Add(categoryColumn);
+            string role = "";
+            if (Account != null)
+            {
+                if (Account.MemberRole == 3)
+                {
+                    role = "Member";
+                    lblFormTitle.Text = "Book Store";
+                    gbTask.Visible = false;
+                    stbCategory.Visible = false;
+                }
+                else if (Account.MemberRole == 2)
+                {
+                    role = "Staff";
+                    btnDelete.Visible = false;
+                    stbCategory.Visible = false;
+                }
+                else
+                {
+                    role = "Admin";
+                }
+                tsmUser.Text = Account.FullName + " | " + role;
+            }
         }
 
         private void dgvBookList_SelectionChanged(object sender, EventArgs e)
@@ -191,8 +211,28 @@ namespace BookStore_HoangNT
         private void stbCategory_Click(object sender, EventArgs e)
         {
             BookCategoryManagerForm bookMgt = new BookCategoryManagerForm();
+            bookMgt.email = Account.Email;
             bookMgt.Show();
             this.Hide();
+        }
+
+        private void updateInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InformationForm infor = new InformationForm();
+            infor.email = Account.Email;
+            infor.ShowDialog();
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Hide();
+        }
+
+        public void UpdateLabel(string label)
+        {
+           tsmUser.Text = label;
         }
     }
 }

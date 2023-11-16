@@ -22,5 +22,11 @@ namespace Repositories
             return db.BookManagementMembers.FirstOrDefault(x => x.Email == email);             
         }
 
+        public void Update(BookManagementMember bookManagement)
+        {
+            BookManagement2023DbContext db = new BookManagement2023DbContext();
+            db.BookManagementMembers.Update(bookManagement);
+            db.SaveChanges();
+        }
     }
 }
