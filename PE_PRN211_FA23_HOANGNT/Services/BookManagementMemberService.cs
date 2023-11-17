@@ -18,12 +18,12 @@ namespace Services
         //nó xử lí gì đó, có thể cần gọi Repository làm việc với DB
         //hàm của thằng này đặt tên gần với con người hơn: CheckLogin()
         //Repo đặt tên gần database hơn: Get() Create()
-
+        BookManagementMemberRepository _repo;
         public BookManagementMember? CheckLogin(string email, string password)
         {
-            BookManagementMemberRepository repo = new BookManagementMemberRepository();
+            _repo = new BookManagementMemberRepository();
 
-            BookManagementMember account = repo.Get(email); //tìm accoun theo email
+            BookManagementMember account = _repo.Get(email); //tìm accoun theo email
 
             //if (account == null)
             //    return null; //email ko tồn tai
@@ -32,12 +32,22 @@ namespace Services
             //return null;
 
             return account != null && account.Password == password ? account : null;
-        }
-        public BookManagementMember? GetAccount(string email)
+public BookManagementMember? GetMemberByEmail(string email)
         {
-            BookManagementMemberRepository repo = new BookManagementMemberRepository();
+            // fix itObject reference not set to an instance of an object.'
+            _repo = new BookManagementMemberRepository();
 
-             return repo.Get(email); //tìm accoun theo email
+
+
+            BookManagementMember newaccount = _repo.Get(email); //tìm accoun theo email
+            return newaccount;
+        }
+        public void InsertIntoDatabase(BookManagementMember member)
+        {
+            _repo = new BookManagementMemberRepository();
+
+            _repo.InsertMember(member);
+
         }
         public bool UpdateAccount(BookManagementMember account)
         {
@@ -51,6 +61,5 @@ namespace Services
             {
                 return false;
             }
-        }
-    }
+        }    }
 }
