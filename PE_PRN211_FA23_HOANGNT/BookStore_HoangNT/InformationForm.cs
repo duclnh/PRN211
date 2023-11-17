@@ -42,33 +42,33 @@ namespace BookStore_HoangNT
         {
             if (string.IsNullOrEmpty(txtName.Text))
             {
-                MessageBox.Show("Please enter your name", "Wrong", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Please enter your name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (string.IsNullOrEmpty(txtPassword.Text))
             {
-                MessageBox.Show("Please enter your password", "Wrong", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Please enter your password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (string.IsNullOrEmpty(txtNewPassword.Text))
             {
-                MessageBox.Show("Please enter new password", "Wrong", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Please enter new password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (string.IsNullOrEmpty(txtRePassword.Text))
             {
-                MessageBox.Show("Please enter re password", "Wrong", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Please enter re password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
 
             }
             if (txtPassword.Text != account.Password)
             {
-                MessageBox.Show("Password is incorrect", "Wrong", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Password is incorrect", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (txtNewPassword.Text != txtRePassword.Text)
             {
-                MessageBox.Show("RePassword is incorrect", "Wrong", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("RePassword is incorrect", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             var ask = MessageBox.Show("Are you sure want to update account", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

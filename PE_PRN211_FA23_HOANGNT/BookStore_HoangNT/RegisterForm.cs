@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Repositories.Entities;
 using Repositories;
 using Services;
+using System.Text.RegularExpressions;
 
 namespace BookStore_HoangNT
 {
@@ -45,6 +46,10 @@ namespace BookStore_HoangNT
                 MessageBox.Show("Password and Confirm Password do not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (!IsValidEmail(txtEmail.Text.Trim())){
+                MessageBox.Show("Email invalid.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             BookManagementMember? existing = se.GetMemberByEmail(email);
             // check email duplicate in database
             if (existing != null)
@@ -56,7 +61,7 @@ namespace BookStore_HoangNT
                 BookManagementMember newMember = new BookManagementMember
                 {
 
-                    Email = email,
+                    Email = email.Trim(),
                     // Set other properties as needed
                     Password = password,
                     FullName = name,
@@ -73,6 +78,17 @@ namespace BookStore_HoangNT
                 login.Show(); // show form CRUD
                 this.Hide();  // hide the registration form
             }
+        }
+        static bool IsValidEmail(string email)
+        {
+            // Define a regular expression pattern for a valid email address
+            string pattern = @"^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+
+            // Create a Regex object
+            Regex regex = new Regex(pattern);
+
+            // Use the regex object to match the email against the pattern
+            return regex.IsMatch(email);
         }
     }
 }
