@@ -17,7 +17,7 @@ namespace BookStore_HoangNT
         public BookManagementMember? Account { get; set; }
         private BookService _bookService = new BookService();
         private BookCategoryService _categoryService = new BookCategoryService();
-
+        private BookManagementMemberService _memberService = new BookManagementMemberService();
         //trên mạng, theo chuẩn, Service cx làm Interface luôn
         //để giúp UI linh hoạt dùng gói Service khác nhau - Dependency Injection
 
@@ -52,28 +52,7 @@ namespace BookStore_HoangNT
             //nhưng khi chọn 1 dòng xổ ra, thì ngầm hiểu value là cột Id
             cboCategory.DisplayMember = "BookGenreType";
             cboCategory.ValueMember = "BookCategoryId"; //chọn 1 dòng xổ ra
-            string role = "";
-            if (Account != null)
-            {
-                if (Account.MemberRole == 3)
-                {
-                    role = "Member";
-                    lblFormTitle.Text = "Book Store";
-                    gbTask.Visible = false;
-                    stbCategory.Visible = false;
-                }
-                else if (Account.MemberRole == 2)
-                {
-                    role = "Staff";
-                    btnDelete.Visible = false;
-                    stbCategory.Visible = false;
-                }
-                else
-                {
-                    role = "Admin";
-                }
-                tsmUser.Text = Account.FullName + " | " + role;
-            }
+            UpdateLabel();
 
         }
 
@@ -214,9 +193,17 @@ namespace BookStore_HoangNT
 
         private void updateInformationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            InformationForm infor = new InformationForm();
-            infor.email = Account.Email;
-            infor.ShowDialog();
+            using (var infor = new InformationForm())
+            {
+                infor.FormClosed += DialogForm_FormClosed;
+                infor.email = Account.Email;
+                infor.ShowDialog();
+            }
+        }
+        private void DialogForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Account = _memberService.GetMemberByEmail(Account.Email);
+            UpdateLabel();
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -226,9 +213,30 @@ namespace BookStore_HoangNT
             this.Hide();
         }
 
-        public void UpdateLabel(string label)
+        public void UpdateLabel()
         {
-           tsmUser.Text = label;
+            string role = "";
+            if (Account != null)
+            {
+                if (Account.MemberRole == 3)
+                {
+                    role = "Member";
+                    lblFormTitle.Text = "Book Store";
+                    gbTask.Visible = false;
+                    stbCategory.Visible = false;
+                }
+                else if (Account.MemberRole == 2)
+                {
+                    role = "Staff";
+                    btnDelete.Visible = false;
+                    stbCategory.Visible = false;
+                }
+                else
+                {
+                    role = "Admin";
+                }
+                tsmUser.Text = Account.FullName + " | " + role;
+            }
         }
     }
 }

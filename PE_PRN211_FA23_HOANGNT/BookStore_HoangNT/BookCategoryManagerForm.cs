@@ -65,23 +65,7 @@ namespace BookStore_HoangNT
         {
             _bookMemberService = new BookManagementMemberService();
             account = _bookMemberService.GetMemberByEmail(email);
-            string role = "";
-            if (account != null)
-            {
-                if (account.MemberRole == 3)
-                {
-                    role = "Member";
-                }
-                else if (account.MemberRole == 2)
-                {
-                    role = "Staff";
-                }
-                else
-                {
-                    role = "Admin";
-                }
-                tsmUser.Text = account.FullName + " | " + role;
-            }
+            UpdateLabel();
 
             var result = _categoryService.GetAllCategories();
             dgvCateList.DataSource = null;
@@ -157,15 +141,44 @@ namespace BookStore_HoangNT
         private void updateInformationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             InformationForm infor = new InformationForm();
+            infor.FormClosed += DialogForm_FormClosed;
             infor.email = account.Email;
             infor.ShowDialog();
         }
-
+        private void DialogForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            account = _bookMemberService.GetMemberByEmail(account.Email);
+            UpdateLabel();
+        }
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
             this.Hide();
+        }
+        public void UpdateLabel()
+        {
+            string role = "";
+            if (account != null)
+            {
+                if (account.MemberRole == 3)
+                {
+                    role = "Member";
+                    lblFormTitle.Text = "Book Store";
+                    gbTask.Visible = false;
+                    stbCategory.Visible = false;
+                }
+                else if (account.MemberRole == 2)
+                {
+                    role = "Staff";
+                    stbCategory.Visible = false;
+                }
+                else
+                {
+                    role = "Admin";
+                }
+                tsmUser.Text = account.FullName + " | " + role;
+            }
         }
     }
 }
