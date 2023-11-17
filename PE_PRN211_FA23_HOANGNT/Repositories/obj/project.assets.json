@@ -3187,11 +3187,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\New folder (2)\\PRN211\\PE_PRN211_FA23_HOANGNT\\Repositories\\Repositories.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\beta\\PRN211\\PE_PRN211_FA23_HOANGNT\\Repositories\\Repositories.csproj",
       "projectName": "Repositories",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\New folder (2)\\PRN211\\PE_PRN211_FA23_HOANGNT\\Repositories\\Repositories.csproj",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\beta\\PRN211\\PE_PRN211_FA23_HOANGNT\\Repositories\\Repositories.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Desktop\\New folder (2)\\PRN211\\PE_PRN211_FA23_HOANGNT\\Repositories\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\beta\\PRN211\\PE_PRN211_FA23_HOANGNT\\Repositories\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -64,7 +64,7 @@ namespace BookStore_HoangNT
         private void BookCategoryManagerForm_Load(object sender, EventArgs e)
         {
             _bookMemberService = new BookManagementMemberService();
-            account = _bookMemberService.GetAccount(email);
+            account = _bookMemberService.GetMemberByEmail(email);
             string role = "";
             if (account != null)
             {

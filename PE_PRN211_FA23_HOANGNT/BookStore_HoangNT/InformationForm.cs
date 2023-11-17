@@ -26,7 +26,7 @@ namespace BookStore_HoangNT
 
         private void InformationForm_Load(object sender, EventArgs e)
         {
-            account = _memberRepository.GetAccount(email);
+            account = _memberRepository.GetMemberByEmail(email);
             if (account != null)
             {
                 txtName.Text = account.FullName;

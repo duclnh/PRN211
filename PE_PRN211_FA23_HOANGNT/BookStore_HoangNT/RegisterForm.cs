@@ -10,8 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Repositories.Entities;
 using Repositories;
-
-
+using Services;
 
 namespace BookStore_HoangNT
 {
@@ -22,12 +21,17 @@ namespace BookStore_HoangNT
             InitializeComponent();
         }
 
-        private void btnSignin_Click(object sender, EventArgs e)
+        private void btnSignup_Click(object sender, EventArgs e)
         {
             string email = txtEmail.Text; //TODO:kiểm tra rỗng!!!
             string name = txtName.Text; //TODO:kiểm tra rỗng!!!
             string password = txtPassword.Text; //TODO: kiểm tra rỗng
             string confirmPassword = txtRepassword.Text; //TODO: kiểm tra rỗng
+
+
+            BookManagementMemberService se = new BookManagementMemberService();
+            // convert bool to BookManagementMember
+
             // Check for empty fields
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(name) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmPassword))
             {
@@ -41,62 +45,33 @@ namespace BookStore_HoangNT
                 MessageBox.Show("Password and Confirm Password do not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            // Check for duplicate email
-            if (IsEmailDuplicate(email))
+            BookManagementMember? existing = se.GetMemberByEmail(email);
+            // check email duplicate in database
+            if (existing != null)
             {
                 MessageBox.Show("Email already exists. Please use a different email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // Insert data into the database
-            if (InsertDataIntoDatabase(email, name, password))
-            {
-                MessageBox.Show("Registration successful.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // You can add code here to navigate to another form or perform additional actions upon successful registration
             }
             else
             {
-                MessageBox.Show("Registration failed. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        // Function to check for duplicate email
-        private bool IsEmailDuplicate(string email)
-        {
-            using (SqlConnection connection = new SqlConnection())
-            {
-                connection.Open();
-
-                // You need to replace "YourTableName" with the actual table name where you store user data
-                string query = $"SELECT COUNT(*) FROM YourTableName WHERE Email = @Email";
-                using (SqlCommand command = new SqlCommand(query, connection))
+                BookManagementMember newMember = new BookManagementMember
                 {
-                    command.Parameters.AddWithValue("@Email", email);
-                    int count = (int)command.ExecuteScalar();
-                    return count > 0;
-                }
-            }
-        }
 
-        // Function to insert data into the database
-        private bool InsertDataIntoDatabase(string email, string name, string password)
-        {
-            using (SqlConnection connection = new SqlConnection())
-            {
-                connection.Open();
+                    Email = email,
+                    // Set other properties as needed
+                    Password = password,
+                    FullName = name,
 
-                // You need to replace "YourTableName" with the actual table name where you want to store user data
-                string query = "INSERT INTO YourTableName (Email, Name, Password) VALUES (@Email, @Name, @Password)";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@Email", email);
-                    command.Parameters.AddWithValue("@Name", name);
-                    command.Parameters.AddWithValue("@Password", password);
 
-                    int rowsAffected = command.ExecuteNonQuery();
-                    return rowsAffected > 0;
-                }
+                };
+
+                se.InsertIntoDatabase(newMember);
+
+                MessageBox.Show("Registration successful.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Navigate to another form or perform additional actions upon successful registration
+                LoginForm login = new LoginForm();
+                login.Show(); // show form CRUD
+                this.Hide();  // hide the registration form
             }
         }
     }
