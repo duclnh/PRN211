@@ -52,7 +52,7 @@ namespace BookStore_HoangNT
             //nhưng khi chọn 1 dòng xổ ra, thì ngầm hiểu value là cột Id
             cboCategory.DisplayMember = "BookGenreType";
             cboCategory.ValueMember = "BookCategoryId"; //chọn 1 dòng xổ ra
- string role = "";
+            string role = "";
             if (Account != null)
             {
                 if (Account.MemberRole == 3)
